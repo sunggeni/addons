@@ -37,8 +37,8 @@
     "MQTT": {
       "anonymous": false,
       "server": "192.168.99.100",
-      "username": "infosec",
-      "password": "infosec@0413"
+      "username": "sunggeni",
+      "password": "D0bbyisfree!"
     },
     "Wallpad": {
       "light": true,
