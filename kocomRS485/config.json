@@ -22,7 +22,7 @@
       "type": "Serial"
     },
     "Socket": {
-      "server": "192.168.x.x",
+      "server": "192.168.99.99",
       "port": 8899
     },
     "SocketDevice": {
@@ -36,13 +36,13 @@
     },
     "MQTT": {
       "anonymous": false,
-      "server": "192.168.x.x",
-      "username": "id",
-      "password": "pw"
+      "server": "192.168.99.100",
+      "username": "infosec",
+      "password": "infosec@0413"
     },
     "Wallpad": {
-      "light": false,
-      "plug": false,
+      "light": true,
+      "plug": true,
       "thermostat": false,
       "fan": false,
       "gas": false,
@@ -58,10 +58,6 @@
     "KOCOM_LIGHT_SIZE": [
       {
         "name": "livingroom",
-        "number": 3
-      },
-      {
-        "name": "bedroom",
         "number": 2
       },
       {
@@ -70,11 +66,15 @@
       },
       {
         "name": "room2",
-        "number": 2
+        "number": 1
+      },
+      {
+        "name": "room3",
+        "number": 1
       },
       {
         "name": "kitchen",
-        "number": 3
+        "number": 2
       }
     ],
     "KOCOM_PLUG_SIZE": [
@@ -83,34 +83,34 @@
         "number": 3
       },
       {
-        "name": "bedroom",
-        "number": 2
-      },
-      {
         "name": "room1",
-        "number": 2
+        "number": 3
       },
       {
         "name": "room2",
-        "number": 2
+        "number": 3
+      },
+      {
+        "name": "room3",
+        "number": 3
       },
       {
         "name": "kitchen",
-        "number": 3
+        "number": 2
       }
     ],
     "KOCOM_ROOM": [
       "livingroom",
-      "bedroom",
       "room1",
       "room2",
+      "room3",
       "kitchen"
     ],
     "KOCOM_ROOM_THERMOSTAT": [
       "livingroom",
-      "bedroom",
       "room1",
-      "room2"
+      "room2",
+      "room3"
     ]
   },
   "schema": {
