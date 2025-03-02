@@ -31,7 +31,7 @@ Add-on configuration:
 RS485:
   type: Serial
 Socket:
-  server: 192.168.x.x
+  server: 192.168.99.100
   port: 8899
 SocketDevice:
   device: kocom
@@ -41,55 +41,56 @@ SerialDevice:
   port1: kocom
 MQTT:
   anonymous: false
-  server: 192.168.x.x
-  username: id
-  password: pw
+  server: 192.168.99.100
+  username: id  
+  password: passwd
 Wallpad:
-  light: false
-  plug: false
+  light: true
+  plug: true
   thermostat: false
   fan: false
   gas: false
   elevator: false
 Advanced:
-  INIT_TEMP: 22
+  INIT_TEMP: 23
   SCAN_INTERVAL: 300
   SCANNING_INTERVAL: 0.8
-  DEFAULT_SPEED: medium
+  DEFAULT_SPEED: low
   LOGLEVEL: info
 KOCOM_LIGHT_SIZE:
   - name: livingroom
-    number: 3
-  - name: bedroom
     number: 2
   - name: room1
     number: 2
   - name: room2
-    number: 2
+    number: 1
+  - name: room3
+    number: 1
   - name: kitchen
-    number: 3
+    number: 2
 KOCOM_PLUG_SIZE:
   - name: livingroom
     number: 3
-  - name: bedroom
-    number: 2
   - name: room1
-    number: 2
-  - name: room2
-    number: 2
-  - name: kitchen
     number: 3
+  - name: room2
+    number: 3
+  - name: room3
+    number: 3
+  - name: kitchen
+    number: 2
 KOCOM_ROOM:
   - livingroom
-  - bedroom
   - room1
   - room2
+  - room3
   - kitchen
 KOCOM_ROOM_THERMOSTAT:
   - livingroom
-  - bedroom
   - room1
   - room2
+  - room3
+
 ```
 
 ### Option: `RS485` (required)
