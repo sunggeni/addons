@@ -49,10 +49,10 @@
       "elevator": false
     },
     "Advanced": {
-      "INIT_TEMP": 22,
+      "INIT_TEMP": 23,
       "SCAN_INTERVAL": 300,
       "SCANNING_INTERVAL": 0.8,
-      "DEFAULT_SPEED" : "medium",
+      "DEFAULT_SPEED" : "low",
       "LOGLEVEL" : "info"
     },
     "KOCOM_LIGHT_SIZE": [
