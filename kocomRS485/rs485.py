@@ -28,22 +28,22 @@ CONF_LOGLEVEL = 'info' # debug, info, warn
 # 본인에 맞게 수정하세요
 
 # 보일러 초기값
-INIT_TEMP = 24
+INIT_TEMP = 22
 # 환풍기 초기속도 ['low', 'medium', 'high']
-DEFAULT_SPEED = 'low'
+DEFAULT_SPEED = 'medium'
 # 조명 / 플러그 갯수
-KOCOM_LIGHT_SIZE            = {'livingroom': 2, 'room1': 2, 'room2': 1, 'room3': 1, 'kitchen': 2}
-KOCOM_PLUG_SIZE             = {'livingroom': 3, 'room1': 3, 'room2': 3, 'room3': 3, 'kitchen': 2}
+KOCOM_LIGHT_SIZE            = {'livingroom': 3, 'bedroom': 2, 'room1': 2, 'room2': 2, 'kitchen': 3}
+KOCOM_PLUG_SIZE             = {'livingroom': 2, 'bedroom': 2, 'room1': 2, 'room2': 2, 'kitchen': 2}
 
 # 방 패킷에 따른 방이름 (패킷1: 방이름1, 패킷2: 방이름2 . . .)
 # 월패드에서 장치를 작동하며 방이름(livingroom, bedroom, room1, room2, kitchen 등)을 확인하여 본인의 상황에 맞게 바꾸세요
 # 조명/콘센트와 난방의 방패킷이 달라서 두개로 나뉘어있습니다.
-KOCOM_ROOM                  = {'00': 'livingroom', '01': 'room1', '02': 'room2', '03': 'room3', '04': 'kitchen'}
-KOCOM_ROOM_THERMOSTAT       = {'00': 'livingroom', '01': 'room1', '02': 'room2', '03': 'room3'}
+KOCOM_ROOM                  = {'00': 'livingroom', '01': 'bedroom', '02': 'room2', '03': 'room1', '04': 'kitchen'}
+KOCOM_ROOM_THERMOSTAT       = {'00': 'livingroom', '01': 'bedroom', '02': 'room1', '03': 'room2'}
 
 # TIME 변수(초)
-SCAN_INTERVAL = 300       # 월패드의 상태값 조회 간격
-SCANNING_INTERVAL = 0.8  # 상태값 조회 시 패킷전송 간격
+SCAN_INTERVAL = 300         # 월패드의 상태값 조회 간격
+SCANNING_INTERVAL = 0.8     # 상태값 조회 시 패킷전송 간격
 ####################### Start Here by Zooil ###########################
 option_file = '/data/options.json'                                                                                             
 if os.path.isfile(option_file):                                                                                                
@@ -94,7 +94,7 @@ if os.path.isfile(option_file):
 # HA MQTT Discovery
 HA_PREFIX = 'homeassistant'
 HA_SWITCH = 'switch'
-HA_LIGHT = 'switch'
+HA_LIGHT = 'light'
 HA_CLIMATE = 'climate'
 HA_SENSOR = 'sensor'
 HA_FAN = 'fan'
@@ -1053,9 +1053,9 @@ class Kocom(rs485):
                     mode = self.wp_list[device][room]['mode']['set']
                     speed = self.wp_list[device][room]['speed']['set']
                     if mode == 'on':
-                        p_value += '1102'
+                        p_value += '1100'
                     elif mode == 'off':
-                        p_value += '0000'
+                        p_value += '0001'
                     p_value += KOCOM_FAN_SPEED_REV.get(speed)
                     p_value += '00000000000'
                 except:
@@ -1504,7 +1504,7 @@ if __name__ == '__main__':
 
     if DEFAULT_SPEED not in ['low', 'medium', 'high']:
         logger.info('[Error] DEFAULT_SPEED 설정오류로 medium 으로 설정. {} -> medium'.format(DEFAULT_SPEED))
-        DEFAULT_SPEED = 'low'
+        DEFAULT_SPEED = 'medium'
 
     _grex_ventilator = False
     _grex_controller = False
@@ -1536,3 +1536,4 @@ if __name__ == '__main__':
                     connection_flag = False
         if _grex_ventilator is not False and _grex_controller is not False:
             _grex = Grex(r, _grex_controller, _grex_ventilator)
+            
