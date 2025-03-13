@@ -36,9 +36,9 @@
     },
     "MQTT": {
       "anonymous": false,
-      "server": "192.168.99.100",
-      "username": "sunggeni",
-      "password": "D0bbyisfree!"
+      "server": "",
+      "username": "",
+      "password": ""
     },
     "Wallpad": {
       "light": true,
